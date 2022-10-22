@@ -1,0 +1,63 @@
+package apnaCollegeArray;
+
+import java.util.Scanner;
+
+public class SpiralOrder {
+
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the no. of rows");
+		int m=sc.nextInt();
+		System.out.println("Enter the no. of columns");
+		int n=sc.nextInt();
+		int arr[][]=new int[m][n];
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				System.out.println("Enter element at ("+ i+","+j+")");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+		System.out.println("The input matrix is ");
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+		//Printing in Spiral order
+		int rowstart=0,rowend=m-1,colstart=0,colend=n-1;
+		while(rowstart<=rowend && colstart<=colend)
+		{
+			for(int col=colstart;col<=colend;col++)
+			{
+				System.out.print(arr[rowstart][col]+" ");
+			}
+			rowstart++;
+			
+			for(int row=rowstart;row<=rowend;row++)
+			{
+				System.out.print(arr[row][colend]+" ");
+			}
+			colend--;
+			
+			for(int col=colend;col>=colstart;col--)
+			{
+				System.out.print(arr[rowend][col]+" ");
+			}
+			rowend--;
+			
+			for(int row=rowend;row>=rowstart;row--)
+			{
+				System.out.print(arr[row][colstart]+" ");
+			}
+			colstart++;
+		}
+		sc.close();
+	}
+
+}
