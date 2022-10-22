@@ -1,0 +1,45 @@
+package array;
+
+import java.util.Scanner;
+
+public class SelectionSort {
+
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("How many numbers you want to enter:");
+		int n=sc.nextInt();
+		int num[]=new int[n];
+		System.out.println("Enter the Numbers");
+		for(int i=0;i<n;i++)
+		{
+			num[i]=sc.nextInt();
+		}
+		
+		//Sorting Starts
+		for(int i=0;i<n-1;i++)
+		{
+			int minIndex=i;
+			for(int j=i;j<n;j++)
+			{
+				if(num[j]<num[minIndex])
+				{
+					minIndex=j;
+				}
+			}
+					int temp=num[i];
+					num[i]=num[minIndex];
+					num[minIndex]=temp;
+					
+				
+			}
+		//Print Result
+		for(int i=0;i<n;i++) {
+			System.out.print(num[i]+" ");
+			
+	   }
+		
+		
+	}
+
+}
