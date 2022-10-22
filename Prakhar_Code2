@@ -1,0 +1,97 @@
+package array;
+
+import java.util.Scanner;
+
+public class Multiplication {
+
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter no. of rows of matrix 1");
+		int row1=sc.nextInt();
+		System.out.println("Enter no. of columns of matrix 1");
+		int col1=sc.nextInt();
+		System.out.println("Enter no. of rows of matrix 2");
+		int row2=sc.nextInt();
+		System.out.println("Enter no. of columns of matrix 2");
+		int col2=sc.nextInt();
+		int mat1[][]=new int[row1][col1];
+		int mat2[][]=new int[row2][col2];
+		final int c[][]=new int[row1][col2];
+		
+		if(col1==row2)
+		{
+
+		
+		//Input for matrix 1
+		System.out.println("Enter matrix 1");
+		for(int i=0;i<row1;i++)
+		{
+			for(int j=0;j<col1;j++)
+			{
+				mat1[i][j]=sc.nextInt();
+			}
+		}
+		//Input for matrix 2
+		System.out.println("Enter matrix 2");
+		for(int i=0;i<row2;i++)
+		{
+			for(int j=0;j<col2;j++)
+			{
+				mat2[i][j]=sc.nextInt();
+			}
+		}
+		//Display matrix 1
+		System.out.println("Matrix 1 is");
+		for(int i=0;i<row1;i++)
+		{
+			for(int j=0;j<col1;j++)
+			{
+				System.out.print(mat1[i][j]+" ");
+			}
+			System.out.println();
+		}
+		//Display matrix 2
+				System.out.println("Matrix 2 is");
+				for(int i=0;i<row2;i++)
+				{
+					for(int j=0;j<col2;j++)
+					{
+						System.out.print(mat2[i][j]+" ");
+					}
+					System.out.println();
+				}
+				
+				
+				//Multiplication Starts
+					
+				for(int i=0;i<row1;i++)
+				{
+					for(int j=0;j<col2;j++)
+					{
+						c[i][j]=0;
+						for(int k=0;k<row2;k++)
+						{
+							c[i][j]=c[i][j]+mat1[i][k]*mat2[k][j];
+						}
+					}
+				}
+				//Print the Result
+				for(int i=0;i<row1;i++)
+				{
+					for(int j=0;j<col2;j++)
+					{
+						System.out.print(c[i][j]+"  ");
+					}
+					System.out.println();
+				}
+				}
+				else
+					System.out.println("Multiplication "
+							+ "not possible");
+				
+		
+	
+	}
+
+}
